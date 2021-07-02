@@ -1,14 +1,18 @@
 import { ThemeProvider } from "styled-components";
-import GlobalStyes from "./styles/global";
-import theme from "./styles/theme";
+import { Router } from "react-router-dom";
 
-import { SignIn } from "./pages/SignIn";
+import history from "./services/history";
+import Routes from "./routes";
+import theme from "./styles/theme";
+import GlobalStyes from "./styles/global";
 
 function App() {
   return (
     <ThemeProvider theme={theme.default}>
-      <GlobalStyes />
-      <SignIn />
+      <Router history={history}>
+        <GlobalStyes />
+        <Routes />
+      </Router>
     </ThemeProvider>
   );
 }
