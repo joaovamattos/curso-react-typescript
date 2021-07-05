@@ -5,14 +5,17 @@ import history from "./services/history";
 import Routes from "./routes";
 import theme from "./styles/theme";
 import GlobalStyes from "./styles/global";
+import ContextProvider from "./contexts";
 
 function App() {
   return (
     <ThemeProvider theme={theme.default}>
-      <Router history={history}>
-        <GlobalStyes />
-        <Routes />
-      </Router>
+      <ContextProvider>
+        <Router history={history}>
+          <GlobalStyes />
+          <Routes />
+        </Router>
+      </ContextProvider>
     </ThemeProvider>
   );
 }

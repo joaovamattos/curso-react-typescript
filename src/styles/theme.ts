@@ -1,7 +1,7 @@
 const theme = {
   default: {
     colors: {
-      black: "#000",
+      black: "#1a1d1b",
       pink: "#ff2748",
     },
   },
