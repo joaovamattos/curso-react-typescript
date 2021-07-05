@@ -1,4 +1,10 @@
-import { createContext, ReactNode, useState, useEffect } from "react";
+import {
+  createContext,
+  ReactNode,
+  useState,
+  useEffect,
+  useContext,
+} from "react";
 import api from "../services/api";
 import history from "../services/history";
 
@@ -27,7 +33,7 @@ const initialState = {
   },
 };
 
-export const AuthContext = createContext<AuthContextData>(initialState);
+const AuthContext = createContext<AuthContextData>(initialState);
 
 function AuthProvider({ children }: Props) {
   const [user, setUser] = useState<User>(initialState.user);
@@ -76,4 +82,10 @@ function AuthProvider({ children }: Props) {
   );
 }
 
-export { AuthProvider };
+function useAuth() {
+  const context = useContext(AuthContext);
+
+  return context;
+}
+
+export { useAuth, AuthProvider };

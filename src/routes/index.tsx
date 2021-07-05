@@ -4,11 +4,10 @@ import CustomRoute from "./Route";
 
 import { Dashboard } from "../pages/Dashboard";
 import { SignIn } from "../pages/SignIn";
-import { useContext } from "react";
-import { AuthContext } from "../contexts/auth";
+import { useAuth } from "../contexts/auth";
 
 export default function Routes() {
-  const { signed } = useContext(AuthContext);
+  const { signed } = useAuth();
 
   return (
     <Switch>
